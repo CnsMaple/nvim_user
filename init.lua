@@ -17,7 +17,7 @@ return {
     },
   },
 
-  -- Set colorscheme to use 
+  -- Set colorscheme to use
   -- colorscheme = "astrodark",
   colorscheme = "tokyonight-night",
 
@@ -84,6 +84,30 @@ return {
           offsetEncoding = { "utf-16" },
         },
       },
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "off",
+              autoSearchPaths = true,
+              diagnosticMode = "openFilesOnly",
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      },
+      lua_ls = {
+        settings = {
+          Lua = {
+            workspace = {
+              checkThirdParty = false,
+            },
+            completion = {
+              callSnippet = "Replace",
+            },
+          },
+        },
+      },
     },
   },
 
@@ -115,53 +139,4 @@ return {
     --   },
     -- }
   end,
-  icons = {
-    ActiveLSP = "",
-    ActiveTS = "",
-    ArrowLeft = "",
-    ArrowRight = "",
-    BufferClose = "󰅖",
-    DapBreakpoint = "",
-    DapBreakpointCondition = "",
-    DapBreakpointRejected = "",
-    DapLogPoint = ".>",
-    DapStopped = "󰁕",
-    DefaultFile = "󰈙",
-    Diagnostic = "󰒡",
-    DiagnosticError = "",
-    DiagnosticHint = "󰌵",
-    DiagnosticInfo = "󰋼",
-    DiagnosticWarn = "",
-    Ellipsis = "…",
-    FileModified = "",
-    FileReadOnly = "",
-    FoldClosed = "",
-    FoldOpened = "",
-    FoldSeparator = " ",
-    FolderClosed = "",
-    FolderEmpty = "",
-    FolderOpen = "",
-    Git = "󰊢",
-    GitAdd = "",
-    GitBranch = "",
-    GitChange = "",
-    GitConflict = "",
-    GitDelete = "",
-    GitIgnored = "◌",
-    GitRenamed = "➜",
-    GitStaged = "✓",
-    GitUnstaged = "✗",
-    GitUntracked = "★",
-    LSPLoaded = "",
-    LSPLoading1 = "",
-    LSPLoading2 = "󰀚",
-    LSPLoading3 = "",
-    MacroRecording = "",
-    Paste = "󰅌",
-    Search = "",
-    Selected = "❯",
-    Spellcheck = "󰓆",
-    TabClose = "󰅙",
-    Copilot = "",
-  },
 }
