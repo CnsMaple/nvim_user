@@ -20,6 +20,21 @@ return {
       return opts
     end,
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      opts["incremental_selection"] = {
+        enable = true,
+        keymaps = {
+          init_selection = "<CR>", -- set to `false` to disable one of the mappings
+          node_incremental = "<CR>",
+          scope_incremental = "<TAB>",
+          node_decremental = "<BS>",
+        },
+      }
+      return opts
+    end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
