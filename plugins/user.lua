@@ -83,4 +83,5 @@ return {
       -- vim.cmd([[ let g:VM_maps["Redo"]               = '<C-r>']])
     end,
   },
+  { "folke/tokyonight.nvim" },
 }
