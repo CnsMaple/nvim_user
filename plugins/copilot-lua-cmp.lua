@@ -1,5 +1,3 @@
--- 1974693
-
 return {
   {
     "hrsh7th/nvim-cmp",
@@ -34,7 +32,7 @@ return {
       suggestion = {
         enabled = false,
         auto_trigger = false,
-        debounce = 75,
+        debounce = 150,
         keymap = {
           accept = "<C-l>",
           accept_word = false,
@@ -84,7 +82,8 @@ return {
     dependencies = {
       { "zbirenbaum/copilot.lua" },
     },
-    opts = {},
-    fix_pairs = true,
+    opts = {
+      fix_pairs = true,
+    },
   },
 }
