@@ -1,4 +1,4 @@
-if false then
+if true then
   return {
     {
       "hrsh7th/nvim-cmp",
@@ -27,7 +27,7 @@ if false then
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
       },
-      build = ":Codeium Auth",
+      -- build = ":Codeium Auth",
       opts = {},
       config = function(_, opts) require("codeium").setup(opts) end,
     },
