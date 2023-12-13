@@ -1,19 +1,3 @@
-# 可能使用的
-
-代码折叠：https://github.com/kevinhwang91/nvim-ufo
-
-一个快速操作的插件，比如向终端发送指今什么的：https://github.com/ThePrimeagen/harpoon
-
-远程工作:https://github.com/chipsenkbeil/distant.nvim
-
-# 需求
-
-None
-
-# 问题
-
-None
-
 # 快速安装
 
 Windows：
@@ -186,12 +170,6 @@ or
 `set clipboard=unnamedplus`
 
 上面做完基本可以做到了
-
-## git不用经常输入密码
-
-如果完成了上面的ssh key的配置，把仓库的地址改成ssh的地址，那么push,pull...就可以不用输入密码了。
-
-像：git@github.com:username/reponame.git
 
 ## 安装nodejs时出现的问题:code ERR_INVALID_URL
 
