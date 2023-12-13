@@ -1,12 +1,12 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
 
 -- 移除换行带注释
-vim.cmd([[
+vim.cmd [[
   augroup remove_format_CR_more_wrap_options
     autocmd!
     autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
   augroup END
-]])
+]]
 
 return {
   opt = {
@@ -21,6 +21,8 @@ return {
     shiftwidth = 4,
     softtabstop = 4,
     tabstop = 4,
+
+    showcmdloc = "statusline",
   },
   g = {
     mapleader = " ", -- sets vim.g.mapleader
