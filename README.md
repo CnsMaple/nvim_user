@@ -2,7 +2,7 @@
 
 Windows：
 
-`scoop install nodejs fd ripgrep sed gcc make fzf`
+`scoop install nodejs fd ripgrep sed gcc make fzf gzip`
 
 archlinux:
 
