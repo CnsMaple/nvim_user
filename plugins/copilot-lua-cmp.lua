@@ -7,7 +7,7 @@ if false then
         local cmp, copilot = require "cmp", require "copilot.suggestion"
 
         opts.sources = cmp.config.sources {
-          { name = "copilot", keyword_length = 1, priority = 1000 },
+          { name = "copilot", keyword_length = 0, priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },

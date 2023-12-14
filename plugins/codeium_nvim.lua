@@ -7,7 +7,7 @@ if true then
         local cmp = require "cmp"
 
         opts.sources = cmp.config.sources {
-          { name = "codeium", keyword_length = 1, priority = 1000 },
+          { name = "codeium", keyword_length = 0, priority = 1250 },
           { name = "nvim_lsp", priority = 1000 },
           { name = "luasnip", priority = 750 },
           { name = "buffer", priority = 500 },
@@ -28,7 +28,10 @@ if true then
         "hrsh7th/nvim-cmp",
       },
       opts = {},
-      config = function(_, opts) require("codeium").setup(opts) end,
+      config = function(_, opts)
+        require("codeium").setup(opts)
+        vim.g.codeium_disable_bindings = 1
+      end,
     },
   }
 else
