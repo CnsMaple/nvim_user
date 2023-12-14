@@ -7,11 +7,11 @@ if true then
         local cmp = require "cmp"
 
         opts.sources = cmp.config.sources {
-          { name = "codeium", keyword_length = 1, priority = 100 },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
+          { name = "codeium", keyword_length = 1, priority = 1000 },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         }
 
         local lspkind = require "lspkind"
@@ -27,7 +27,6 @@ if true then
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
       },
-      -- build = ":Codeium Auth",
       opts = {},
       config = function(_, opts) require("codeium").setup(opts) end,
     },

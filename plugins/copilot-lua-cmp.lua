@@ -7,11 +7,11 @@ if false then
         local cmp, copilot = require "cmp", require "copilot.suggestion"
 
         opts.sources = cmp.config.sources {
-          { name = "copilot", keyword_length = 1, priority = 100 },
-          { name = "nvim_lsp" },
-          { name = "luasnip" },
-          { name = "buffer" },
-          { name = "path" },
+          { name = "copilot", keyword_length = 1, priority = 1000 },
+          { name = "nvim_lsp", priority = 1000 },
+          { name = "luasnip", priority = 750 },
+          { name = "buffer", priority = 500 },
+          { name = "path", priority = 250 },
         }
 
         cmp.event:on("menu_opened", function() vim.b.copilot_suggestion_hidden = true end)
