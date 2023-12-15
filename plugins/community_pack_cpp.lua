@@ -31,15 +31,15 @@ return {
       })
     end,
   },
-  -- {
-  --   "Civitasv/cmake-tools.nvim",
-  --   ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-  --   dependencies = {
-  --     {
-  --       "jay-babu/mason-nvim-dap.nvim",
-  --       opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
-  --     },
-  --   },
-  --   opts = {},
-  -- },
+  {
+    "Civitasv/cmake-tools.nvim",
+    ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    dependencies = {
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
+      },
+    },
+    opts = {},
+  },
 }
