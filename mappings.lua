@@ -27,6 +27,10 @@ return {
     ["<leader>b"] = { name = "Buffers" },
     -- quick save
     -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+    ["<leader>ur"] = {
+      "<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
+      desc = "Redraw / clear hlsearch / diff update",
+    },
   },
   v = {
     ["<S-h>"] = { "^", desc = "Move to first non-blank character of line" },
