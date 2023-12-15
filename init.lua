@@ -59,7 +59,7 @@ return {
         cmd = {
           "D:/CodeBin/Qt/Tools/QtCreator/bin/clang/bin/clangd.exe",
           -- 主要标志
-          "--compile-commands-dir=build/Debug/.qtc_clangd", -- 配置编译命令文件
+          "--compile-commands-dir=build", -- 配置编译命令文件
           "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++.exe",
 
           -- 功能
@@ -138,5 +138,32 @@ return {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+
+    -- close some filetypes with <q>
+    vim.api.nvim_create_autocmd("FileType", {
+      -- group = augroup("close_with_q"),
+      pattern = {
+        -- "PlenaryTestPopup",
+        -- "help",
+        -- "lspinfo",
+        -- "man",
+        -- "notify",
+        -- "qf",
+        -- "spectre_panel",
+        -- "startuptime",
+        -- "tsplayground",
+        -- "neotest-output",
+        -- "checkhealth",
+        -- "neotest-summary",
+        -- "neotest-output-panel",
+
+        -- add
+        "cmake_tools_terminal",
+      },
+      callback = function(event)
+        vim.bo[event.buf].buflisted = false
+        vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+      end,
+    })
   end,
 }
