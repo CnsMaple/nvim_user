@@ -35,7 +35,7 @@ return {
         },
         -- removes the default <leader>i keymap
         remove_default_keybinds = true,
-        vim.keymap.set({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle, { desc = "Toggle comment" }),
+        vim.keymap.set({ "n", "v" }, "<leader>i", require("nvim-toggler").toggle, { desc = "Reverse Text" }),
       }
     end,
   },
@@ -62,26 +62,21 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
   -- 多文本选择
   {
-    "mg979/vim-visual-multi",
-    enabled = true,
-    event = { "BufReadPost", "BufNewFile" },
-    -- branch = "master",
-    init = function()
-      -- 禁用默认快捷键
-      vim.cmd [[let g:VM_default_mappings = 0]]
-      -- vim.g.VM_maps['Find Under'] = '<C-1>'
-      -- vim.g.VM_maps['Find Subword Under'] = '<C-d>'
-      -- vim.cmd([[ let g:VM_leader                     = {'default': ' ', 'visual': ' ', 'buffer': ' '}]])
-      -- vim.cmd([[ let g:VM_maps                       = {}]])
-      -- vim.cmd([[ let g:VM_maps['Find Under']         = '<C-k>']])
-      -- vim.cmd([[ let g:VM_maps['Find Subword Under'] = '<C-k>']])
-      -- vim.cmd([[ let g:VM_maps['Find Next']          = '']])
-      -- vim.cmd([[ let g:VM_maps['Find Prev']          = '']])
-      -- vim.cmd([[ let g:VM_maps['Remove Region']      = 'q']])
-      -- vim.cmd([[ let g:VM_maps['Skip Region']        = '<c-n>']])
-      -- vim.cmd([[ let g:VM_maps["Undo"]               = 'l']])
-      -- vim.cmd([[ let g:VM_maps["Redo"]               = '<C-r>']])
-    end,
+    "smoka7/multicursors.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "smoka7/hydra.nvim",
+    },
+    opts = {},
+    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
+    keys = {
+      {
+        mode = { "v", "n" },
+        "<Leader>m",
+        "<cmd>MCstart<cr>",
+        desc = "Create a selection for selected text or word under the cursor",
+      },
+    },
   },
   { "folke/tokyonight.nvim" },
 }

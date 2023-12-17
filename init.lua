@@ -60,7 +60,7 @@ return {
           "D:/CodeBin/Qt/Tools/QtCreator/bin/clang/bin/clangd.exe",
           -- 主要标志
           "--compile-commands-dir=build", -- 配置编译命令文件
-          "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++.exe",
+          "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc-*.exe,D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++-*.exe",
 
           -- 功能
           "--all-scopes-completion", -- 全代码库补全
@@ -69,7 +69,7 @@ return {
           "--clang-tidy", -- 格式化代码，目录下需要放一个.clang-format文件
           "--completion-style=bundled", -- (detailed or bundled)补全的方法时候显示参数，按tab下一项的那种
           "--fallback-style=WebKit", -- webkit microsoft gun都还不错(按喜好顺序排)
-          "--header-insertion=never", -- (iwyu or never)禁止头文件插入
+          "--header-insertion=iwyu", -- (iwyu or never)禁止头文件插入
           "--header-insertion-decorators", -- 输入建议中，已包含头文件的项与还未包含头文件的项会以圆点加以区分
 
           -- clangd的性能
@@ -159,6 +159,7 @@ return {
 
         -- add
         "cmake_tools_terminal",
+        "dap-repl",
       },
       callback = function(event)
         vim.bo[event.buf].buflisted = false
