@@ -1,12 +1,16 @@
 # 快速安装
 
+这些是依赖，目前主要更新的是windows的。
+
 Windows：
 
-`scoop install nodejs fd ripgrep sed gcc make fzf gzip`
+`scoop install nodejs fd ripgrep sed gcc make fzf gzip deno`
 
 archlinux:
 
 `paru -S npm neovim gcc make`
+
+然后clone AstroNvim到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
 
 # 一些环境依赖问题
 
