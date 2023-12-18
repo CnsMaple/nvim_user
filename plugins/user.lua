@@ -91,4 +91,14 @@ return {
       "PeekClose",
     },
   },
+  {
+    "CnsMaple/clipboard-image.nvim",
+    ft = { "markdown" },
+    opts = {
+      markdown = {
+        img_dir = {"%:p:h", "img"}
+      }
+    },
+    cmd = { "PasteImg" },
+  },
 }
