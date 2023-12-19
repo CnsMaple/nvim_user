@@ -1,4 +1,4 @@
-if false then
+if true then
   return {
     {
       "hrsh7th/nvim-cmp",
@@ -6,13 +6,7 @@ if false then
       opts = function(_, opts)
         local cmp, copilot = require "cmp", require "copilot.suggestion"
 
-        opts.sources = cmp.config.sources {
-          { name = "copilot", keyword_length = 0, priority = 1250 },
-          { name = "nvim_lsp", priority = 1000 },
-          { name = "luasnip", priority = 750 },
-          { name = "buffer", priority = 500 },
-          { name = "path", priority = 250 },
-        }
+        table.insert(opts.sources, { name = "copilot", priority = 1000, keyword_length = 0, group_index = 1 })
 
         cmp.event:on("menu_opened", function() vim.b.copilot_suggestion_hidden = true end)
         cmp.event:on("menu_closed", function() vim.b.copilot_suggestion_hidden = false end)
