@@ -82,9 +82,11 @@ return {
   {
     "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
-    config = function()
+    ft = { "markdown" },
+    opts = function(_, opts)
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+      return opts
     end,
     cmd = {
       "PeekOpen",
@@ -96,10 +98,10 @@ return {
     ft = { "markdown" },
     opts = {
       markdown = {
-        img_dir = {"%:p:h", "img"},
+        img_dir = { "%:p:h", "img" },
         img_dir_txt = "img",
-        img_name =function() return vim.fn.input { prompt = "Enter file name: " } end,
-      }
+        img_name = function() return vim.fn.input { prompt = "Enter file name: " } end,
+      },
     },
     cmd = { "PasteImg" },
   },
