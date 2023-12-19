@@ -96,7 +96,9 @@ return {
     ft = { "markdown" },
     opts = {
       markdown = {
-        img_dir = {"%:p:h", "img"}
+        img_dir = {"%:p:h", "img"},
+        img_dir_txt = "img",
+        img_name =function() return vim.fn.input { prompt = "Enter file name: " } end,
       }
     },
     cmd = { "PasteImg" },
