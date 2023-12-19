@@ -36,6 +36,9 @@ return {
     ["<S-h>"] = { "^", desc = "Move to first non-blank character of line" },
     ["<S-l>"] = { "$g_", desc = "Move to end of line" },
   },
+  i = {
+    ["jj"] = { "<cmd>nohl<cr><esc>", desc = "exit insert mode" },
+  },
   t = {
     -- setting a mapping to false will disable it
     -- ["<esc>"] = false,
