@@ -218,3 +218,11 @@ sudo apt-get -f install
 去到：/home/xxxx/.ssh
 
 可以看到有：known_hosts和known_hosts.old文件，删掉这两个就可以了。
+
+# 待修正的问题
+
+1. markdown的TODO没有颜色显示。
+
+比如：
+
+<!-- TODO: FOOOJJ -->

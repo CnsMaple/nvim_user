@@ -107,7 +107,7 @@ return {
 
       -- disable dap events that are created
       local dap = require "dap"
-      -- dap.listeners.after.event_initialized["dapui_config"] = nil
+      dap.listeners.after.event_initialized["dapui_config"] = nil
       dap.listeners.before.event_terminated["dapui_config"] = nil
       dap.listeners.before.event_exited["dapui_config"] = nil
     end,
