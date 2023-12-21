@@ -10,7 +10,9 @@ archlinux:
 
 `paru -S npm neovim gcc make`
 
-然后clone AstroNvim到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
+然后clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
+
+如果想要更好的视觉体验可以使用neovide，[neovide](https://neovide.dev/installation.html)建议源码构建出来。
 
 # 一些环境依赖问题
 
