@@ -6,7 +6,7 @@ if true then
       opts = function(_, opts)
         local cmp, copilot = require "cmp", require "copilot.suggestion"
 
-        table.insert(opts.sources, { name = "copilot", priority = 1000, keyword_length = 0, group_index = 1 })
+        table.insert(opts.sources, { name = "copilot", priority = 1250, keyword_length = 0, group_index = 1 })
 
         cmp.event:on("menu_opened", function() vim.b.copilot_suggestion_hidden = true end)
         cmp.event:on("menu_closed", function() vim.b.copilot_suggestion_hidden = false end)

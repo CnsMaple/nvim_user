@@ -6,7 +6,7 @@ if true then
       opts = function(_, opts)
         local cmp = require "cmp"
 
-        table.insert(opts.sources, { name = "codeium", priority = 1000, keyword_length = 0, group_index = 1 })
+        table.insert(opts.sources, { name = "codeium", priority = 1250, keyword_length = 0, group_index = 1 })
 
         local lspkind = require "lspkind"
         lspkind.symbol_map["Codeium"] = ""
@@ -22,10 +22,6 @@ if true then
         "hrsh7th/nvim-cmp",
       },
       opts = {},
-      config = function(_, opts)
-        require("codeium").setup(opts)
-        vim.g.codeium_disable_bindings = 1
-      end,
     },
   }
 else
