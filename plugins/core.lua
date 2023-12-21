@@ -129,6 +129,23 @@ return {
     "max397574/better-escape.nvim",
     enabled = false,
   },
+  {
+    "rebelot/heirline.nvim",
+    opts = function(_, opts)
+      table.insert(opts.statusline, 7, {
+        condition = function()
+          local session = require("dap").session()
+          return session ~= nil
+        end,
+        provider = function() return " " .. require("dap").status() end,
+        hl = "Debug",
+        -- see Click-it! section for clickable actions
+      })
+
+      -- return the final configuration table
+      return opts
+    end,
+  },
   -- You can disable default plugins as follows:
   -- { "max397574/better-escape.nvim", enabled = false },
   --
