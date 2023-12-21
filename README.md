@@ -20,13 +20,13 @@ archlinux:
 
 2. Neovim >= 0.10.0（可以在文中显示虚拟文本）
 
-下载appimage，然后建立一个链接就可以了。
+下载可执行文件（不同平台不一样，如果是Linux，那就appimage），然后建立一个链接就可以了。
 
-3. Git >= 2.19.0 
+3. Git >= 2.19.0
 
 copilot.lua插件需要git来登录：
 
-需要设置ssh通道：
+Linux下需要设置ssh通道：
 
 安装git
 
@@ -54,9 +54,9 @@ Tip:xxxx是用户名
 
 将输出都复制(从ssh-ras开头到最后)。
 
-打开GitHub网站：setting --> SSH and GPGS Keys --> New  SSH Key-->复制cat id_rsa.pub里的秘钥到指定位置-->Add SSH Key
+打开GitHub网站：setting --> SSH and GPGS Keys --> New SSH Key-->复制cat id_rsa.pub里的秘钥到指定位置-->Add SSH Key
 
-验证是否成功：`ssh -T git@github.com` 
+验证是否成功：`ssh -T git@github.com`
 
 在输出中看到自己的名字就可以了，在最后一行，有"Hi,xxxx~"。
 
@@ -78,17 +78,13 @@ Host github.com
 
 4. [a Nerd Font](https://www.nerdfonts.com/)
 
-目前主要在使用[maple-font](https://github.com/subframe7536/Maple-font)：`Maple Mono SC NF` 
+目前主要在使用[maple-font](https://github.com/subframe7536/Maple-font)：`Maple Mono SC NF`
 
 5. [ripgrep](https://github.com/BurntSushi/ripgrep)
 
 6. [fd](https://github.com/sharkdp/fd)
 
-可能还要fg
-
-7. [rust(cargo)](https://www.rust-lang.org/tools/install)环境(暂不用)。
-
-有个minimap需要，不过那个minimap不好用，现在弃用了，这个配置就留着。
+7. [rust(cargo)](https://www.rust-lang.org/tools/install)
 
 可能要配置一下的全局变量:`$HOME/.cargo/env`
 
@@ -115,22 +111,9 @@ proxy = "127.0.0.1:7890"
 
 安装npm就有node,nodejs,npm了
 
-主要的代码树什么的，都要，它们是npm install xxx这些。还有copilote也要使用这个，而且必需大于16.0
+主要的代码树什么的，都要，它们是npm install xxx这些。还有copilot也要使用这个，而且必需大于16.0
 
 [更新nodejs为16.x](https://joshtronic.com/2021/05/09/how-to-install-nodejs-16-on-ubuntu-2004-lts/)
-
-```bash
-sudo apt update
-sudo apt upgrade
-
-sudo apt install -y curl
-
-curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
-
-sudo apt install -y nodejs
-
-node --version
-```
 
 9. [fzf](https://github.com/junegunn/fzf#installation)
 
@@ -176,50 +159,6 @@ or
 `set clipboard=unnamedplus`
 
 上面做完基本可以做到了
-
-## 安装nodejs时出现的问题:code ERR_INVALID_URL
-
-```text
-npm ERR! code ERR_INVALID_URL
-npm ERR! Invalid URL
-
-npm ERR! A complete log of this run can be found in:
-npm ERR! C:\Users\....\AppData\Local\npm-cache\_logs\2021-11-04T09_13_08_065Z-debug.log
-```
-
-详细问题可以看它给出的日志。
-
-一般是因为代理问题导致的：
-
-办法：
-
-```bash
-npm config set proxy http://127.0.0.1:7890
-```
-
-## 安装的过程中出现的错误：sub-process /usr/bin/dpkg returned an error code 1
-
-原因：这个是安装包被污染了。
-
-办法：
-
-比如在安装nodejs(sudo apt install nodejs)的时候出现的：
-
-```bash
-sudo apt-get --purge remove nodejs
-
-sudo apt autoremove -f
-
-sudo apt-get -f install
-```
-
-## 目标主机因重装不能再次连接ssh
-
-办法：
-
-去到：/home/xxxx/.ssh
-
-可以看到有：known_hosts和known_hosts.old文件，删掉这两个就可以了。
 
 # 待修正的问题
 
