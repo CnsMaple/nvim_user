@@ -105,4 +105,13 @@ return {
     },
     cmd = { "PasteImg" },
   },
+  {
+    "jakewvincent/mkdnflow.nvim",
+    enabled = true,
+    ft = { "markdown" },
+    config = function()
+      require("mkdnflow").setup {
+      }
+    end,
+  },
 }
