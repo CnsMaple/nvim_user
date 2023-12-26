@@ -48,16 +48,16 @@ return {
       cmake_regenerate_on_save = true,
       cmake_build_directory = "build",
 
-       -- 在vscode中的qt项目，使用cmake默认的构建参数，用来参考，请勿在CMakeLists.txt中尝试配置编译器
-       -- D:\CodeBin\mingw64\bin\cmake.EXE
-       -- --no-warn-unused-cli 
-       -- -DCMAKE_BUILD_TYPE:STRING=Debug 
-       -- -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE 
-       -- -DCMAKE_C_COMPILER:FILEPATH=D:\CodeBin\Qt\Tools\mingw1120_64\bin\gcc.exe 
-       -- -DCMAKE_CXX_COMPILER:FILEPATH=D:\CodeBin\Qt\Tools\mingw1120_64\bin\g++.exe 
-       -- -SD:/CodeData/cpp/Chess_game_QT 
-       -- -Bd:/CodeData/cpp/Chess_game_QT/build 
-       -- -G "MinGW Makefiles"
+      -- 在vscode中的qt项目，使用cmake默认的构建参数，用来参考，请勿在CMakeLists.txt中尝试配置编译器
+      -- D:\CodeBin\mingw64\bin\cmake.EXE
+      -- --no-warn-unused-cli
+      -- -DCMAKE_BUILD_TYPE:STRING=Debug
+      -- -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE
+      -- -DCMAKE_C_COMPILER:FILEPATH=D:\CodeBin\Qt\Tools\mingw1120_64\bin\gcc.exe
+      -- -DCMAKE_CXX_COMPILER:FILEPATH=D:\CodeBin\Qt\Tools\mingw1120_64\bin\g++.exe
+      -- -SD:/CodeData/cpp/Chess_game_QT
+      -- -Bd:/CodeData/cpp/Chess_game_QT/build
+      -- -G "MinGW Makefiles"
       cmake_generate_options = {
         "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
         "-DCMAKE_C_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc.exe",

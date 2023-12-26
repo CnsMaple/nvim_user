@@ -167,3 +167,6 @@ or
 比如：
 
 <!-- TODO: FOOOJJ -->
+
+2. debug的时候显示虚拟变量文本
+3. 整理mason

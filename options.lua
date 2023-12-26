@@ -1,26 +1,16 @@
--- set vim options here (vim.<first_key>.<second_key> = value)
-
--- 移除换行带注释
-vim.cmd [[
-  augroup remove_format_CR_more_wrap_options
-    autocmd!
-    autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-  augroup END
-]]
-
 return {
   opt = {
-    -- set to true or false etc.
-    relativenumber = true, -- sets vim.opt.relativenumber
-    number = true, -- sets vim.opt.number
-    spell = false, -- sets vim.opt.spell
-    signcolumn = "yes", -- sets vim.opt.signcolumn to auto
-    wrap = true, -- sets vim.opt.wrap
+    relativenumber = true, -- 相对行号
+    number = true, -- 行号
+    spell = false, -- 单词拼写
+    signcolumn = "yes", -- 行号行固定
+    wrap = true, -- 超出屏幕宽度折行
+
     -- tab use space
-    expandtab = true,
-    shiftwidth = 4,
-    softtabstop = 4,
-    tabstop = 4,
+    expandtab = true, -- 使用空格代替tab
+    shiftwidth = 4, -- 每个tab操作的空格数量，非tab键操作
+    autoindent = true, -- 新行用当前行的缩进
+    tabstop = 4, -- 每个tab键的空格数量
 
     showcmdloc = "statusline",
   },
