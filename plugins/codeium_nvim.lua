@@ -21,7 +21,14 @@ if true then
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
       },
-      opts = {},
+      opts = function(_, opts)
+        local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
+
+        return {
+          config_path = nvim_data_codeium_path .. "\\config.json",
+          bin_path = nvim_data_codeium_path .. "\\bin",
+        }
+      end,
     },
   }
 else
