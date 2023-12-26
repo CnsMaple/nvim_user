@@ -19,7 +19,7 @@ if true then
       cmd = "Codeium",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        "hrsh7th/nvim-cmp",
+        -- "hrsh7th/nvim-cmp",
       },
       opts = function(_, opts)
         local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
