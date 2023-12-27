@@ -1,4 +1,4 @@
-if false then
+if true then
   return {
     {
       "hrsh7th/nvim-cmp",

@@ -17,9 +17,10 @@ if true then
     {
       "Exafunction/codeium.nvim",
       cmd = "Codeium",
+      event = "User AstroFile",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        -- "hrsh7th/nvim-cmp",
+        "hrsh7th/nvim-cmp",
       },
       opts = function(_, opts)
         local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
