@@ -16,18 +16,20 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      opts["incremental_selection"] = {
+    opts = {
+      incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<CR>", -- set to `false` to disable one of the mappings
+          -- set to `false` to disable one of the mappings
+          init_selection = "<CR>",
           node_incremental = "<CR>",
           scope_incremental = "<TAB>",
           node_decremental = "<BS>",
         },
-      }
-      return opts
-    end,
+      },
+      -- 可以避免一些错误的缩进
+      indent = { enable = false },
+    },
   },
   {
     "hrsh7th/nvim-cmp",
