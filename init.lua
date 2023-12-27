@@ -160,6 +160,8 @@ return {
         -- add
         "cmake_tools_terminal",
         "dap-repl",
+        "dap-console",
+        "dap-watches",
       },
       callback = function(event)
         vim.bo[event.buf].buflisted = false
