@@ -99,9 +99,12 @@ return {
     "jakewvincent/mkdnflow.nvim",
     enabled = true,
     ft = { "markdown" },
-    config = function()
-      require("mkdnflow").setup {
-      }
-    end,
+    config = function() require("mkdnflow").setup {} end,
+  },
+  {
+    "theHamsta/nvim-dap-virtual-text",
+    dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
+    event = "User AstroFile",
+    opts = {},
   },
 }

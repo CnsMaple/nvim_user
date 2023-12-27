@@ -67,7 +67,7 @@ return {
             },
           },
           position = "right",
-          size = 40,
+          size = 25,
         },
         {
           elements = {
@@ -81,9 +81,11 @@ return {
             },
           },
           position = "bottom",
-          size = 10,
+          size = 8,
         },
       }
+      -- 防止文字超过窗口
+      opts.expand_lines = false
       return opts
     end,
     config = function(plugin, opts)
