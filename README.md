@@ -4,7 +4,7 @@
 
 Windows：
 
-`scoop install nodejs fd ripgrep sed gcc make fzf gzip deno`
+`scoop install nodejs fd ripgrep sed gcc make fzf gzip deno neovide`
 
 archlinux:
 
@@ -12,7 +12,7 @@ archlinux:
 
 然后clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
 
-如果想要更好的视觉体验可以使用neovide，[neovide](https://neovide.dev/installation.html)建议源码构建出来。
+如果想要更好的视觉体验可以使用neovide，[neovide](https://neovide.dev/installation.html)建议源码构建出来，这样体验新功能和更少bug。
 
 # 一些环境依赖问题
 
@@ -167,5 +167,3 @@ or
 比如：
 
 <!-- TODO: FOOOJJ -->
-
-2. neogit的中文路径的问题

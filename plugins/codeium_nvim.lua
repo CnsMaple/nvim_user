@@ -2,7 +2,7 @@ if true then
   return {
     {
       "hrsh7th/nvim-cmp",
-      dependencies = { "Exafunction/codeium.nvim" },
+      -- dependencies = { "Exafunction/codeium.nvim" },
       opts = function(_, opts)
         local cmp = require "cmp"
 
