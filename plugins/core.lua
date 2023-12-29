@@ -135,4 +135,22 @@ return {
       return opts
     end,
   },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+        layout_strategy = "vertical",
+        layout_config = {
+          vertical = {
+            -- 整个窗口的高度
+            height = 0.99,
+            preview_cutoff = 1,
+            preview_height = 0.55,
+            prompt_position = "bottom",
+            width = 0.9,
+          },
+        },
+      },
+    },
+  },
 }
