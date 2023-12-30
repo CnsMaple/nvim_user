@@ -92,6 +92,11 @@ local function my_on_attach(bufnr)
     api.tree.change_root(e_root)
     vim.notify("[info] nvim-tree_lua.lua: change root to " .. e_root, vim.log.levels.INFO)
   end, opts "set root dir")
+
+  vim.keymap.set("n", "g?", function()
+    api.tree.toggle_help()
+    vim.cmd "resize 30"
+  end, opts "Help")
 end
 
 return {
