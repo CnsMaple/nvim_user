@@ -68,7 +68,9 @@ return {
       },
     },
   },
+  -- 更好的主题
   { "folke/tokyonight.nvim" },
+  -- markdown 预览
   {
     "toppair/peek.nvim",
     build = "deno task --quiet build:fast",
@@ -83,6 +85,7 @@ return {
       "PeekClose",
     },
   },
+  -- markdown 图片粘贴
   {
     "CnsMaple/clipboard-image.nvim",
     ft = { "markdown" },
@@ -95,18 +98,21 @@ return {
     },
     cmd = { "PasteImg" },
   },
+  -- markdown 更多语法支持
   {
     "jakewvincent/mkdnflow.nvim",
     enabled = true,
     ft = { "markdown" },
     config = function() require("mkdnflow").setup {} end,
   },
+  -- 调试的虚拟文本
   {
     "theHamsta/nvim-dap-virtual-text",
     dependencies = { "mfussenegger/nvim-dap", "nvim-treesitter/nvim-treesitter" },
     event = "User AstroFile",
     opts = {},
   },
+  -- 更好的标记插件
   {
     "chentoast/marks.nvim",
     event = "User AstroFile",
@@ -121,5 +127,10 @@ return {
         "neo-tree",
       },
     },
+  },
+  -- 窗口移动插件
+  {
+    "sindrets/winshift.nvim",
+    event = "User AstroFile",
   },
 }
