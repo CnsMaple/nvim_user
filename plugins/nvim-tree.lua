@@ -52,7 +52,7 @@ local function get_parent_directory(path)
     table.insert(parts, part)
   end
   table.remove(parts)
-  return "/" .. table.concat(parts, "/")
+  return table.concat(parts, "/")
 end
 
 local function my_on_attach(bufnr)
@@ -71,9 +71,9 @@ local function my_on_attach(bufnr)
         local now_directory = api.tree.get_nodes().absolute_path
         vim.cmd("cd " .. now_directory)
         e_root = now_directory
-        vim.notify("[info] nvim-tree_lua.lua: change root to " .. now_directory)
+        vim.notify("[info] nvim-tree_lua.lua: change root to " .. now_directory, vim.log.levels.INFO)
       else
-        vim.notify "[error] nvim-tree_lua.lua: the node is not a directory or file)"
+        vim.notify("[error] nvim-tree_lua.lua: the node is not a directory or file)", vim.log.levels.ERROR)
       end
       return
     end
@@ -87,10 +87,10 @@ local function my_on_attach(bufnr)
       vim.cmd("cd " .. parent_directory)
       e_root = parent_directory
     else
-      vim.notify("[error] nvim-tree_lua.lua: " .. path .. " is not a directory or file)")
+      vim.notify("[error] nvim-tree_lua.lua: " .. path .. " is not a directory or file)", vim.log.levels.ERROR)
     end
     api.tree.change_root(e_root)
-    vim.notify("[info] nvim-tree_lua.lua: change root to " .. e_root)
+    vim.notify("[info] nvim-tree_lua.lua: change root to " .. e_root, vim.log.levels.INFO)
   end, opts "set root dir")
 end
 
