@@ -162,8 +162,3 @@ or
 
 # 待修正的问题
 
-1. markdown的TODO没有颜色显示。
-
-比如：
-
-<!-- TODO: FOOOJJ -->
