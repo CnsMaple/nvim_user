@@ -5,5 +5,7 @@ return {
 
     showcmdloc = "statusline",
   },
-  g = {},
+  g = {
+    inlay_hints_enabled = true,
+  },
 }
