@@ -4,7 +4,6 @@ if true then
       "hrsh7th/nvim-cmp",
       dependencies = { "zbirenbaum/copilot.lua", "zbirenbaum/copilot-cmp" },
       opts = function(_, opts)
-
         table.insert(opts.sources, { name = "copilot", priority = 1250, keyword_length = 0, group_index = 1 })
 
         local lspkind = require "lspkind"
@@ -49,9 +48,7 @@ if true then
       dependencies = {
         { "zbirenbaum/copilot.lua" },
       },
-      opts = {
-        fix_pairs = true,
-      },
+      opts = {},
     },
   }
 else
