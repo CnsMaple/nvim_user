@@ -13,7 +13,7 @@
 --   end,
 -- })
 
-local E_root = vim.loop.cwd()
+-- local E_root = vim.loop.cwd()
 local e_root = vim.loop.cwd()
 
 -- 动态变化根目录
@@ -109,12 +109,12 @@ return {
   keys = {
     {
       "<leader>e",
-      function() require("nvim-tree.api").tree.toggle { path = e_root } end,
+      function() require("nvim-tree.api").tree.toggle() end,
       desc = "open current file",
     },
     {
       "<leader>E",
-      function() require("nvim-tree.api").tree.toggle { path = E_root } end,
+      function() require("nvim-tree.api").tree.toggle { path = e_root } end,
       desc = "open current root",
     },
   },

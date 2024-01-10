@@ -8,5 +8,10 @@ return {
   "declancm/cinnamon.nvim",
   enabled = vim.g.neovide == nil,
   event = "VeryLazy",
-  opts = {},
+  opts = {
+    default_delay = 1,
+    extra_keymaps = true, -- Create extra keymaps.
+    extended_keymaps = true, -- Create extended keymaps.
+    scroll_limit = 50,
+  },
 }
