@@ -38,6 +38,30 @@ return {
       opts.mapping["<C-y>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" })
       opts.mapping["<Tab>"] = nil
       opts.mapping["<S-Tab>"] = nil
+
+      opts.mapping["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select }
+      opts.mapping["<C-n>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select }
+      opts.mapping["<C-k>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Select }
+      opts.mapping["<C-j>"] = cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Select }
+
+      local lspkind = require "lspkind"
+
+      opts.formatting = {
+        fields = { "kind", "abbr", "menu" },
+        -- fields = { "kind", "abbr"},
+        format = function(entry, vim_item)
+          local abbrMaxWidth = 80
+          local menuMaxWidth = 20
+          vim_item.kind = lspkind.symbolic(vim_item.kind, { mode = "symbol" })
+          vim_item.abbr = string.sub(vim_item.abbr, 1, abbrMaxWidth)
+          if vim_item.menu then vim_item.menu = string.sub(vim_item.menu, 1, menuMaxWidth) end
+          return vim_item
+        end,
+      }
+
+      opts["experimental"] = {
+        ghost_text = true,
+      }
       return opts
     end,
   },

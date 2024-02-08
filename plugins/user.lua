@@ -69,7 +69,12 @@ return {
     },
   },
   -- 更好的主题
-  { "folke/tokyonight.nvim" },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = false,
+    },
+  },
   -- markdown 预览
   {
     "toppair/peek.nvim",

@@ -57,7 +57,7 @@ return {
     config = {
       clangd = {
         cmd = {
-          "D:/CodeBin/Qt/Tools/QtCreator/bin/clang/bin/clangd.exe",
+          "clangd.exe",
           -- 主要标志
           "--compile-commands-dir=build/Debug/.qtc_clangd", -- 配置编译命令文件
           -- "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc-*.exe,D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++-*.exe",
