@@ -6,10 +6,11 @@ if true then
       opts = function(_, opts)
         local cmp = require "cmp"
 
-        table.insert(opts.sources, { name = "codeium", priority = 1250, keyword_length = 0, group_index = 1 })
+        table.insert(opts.sources, { name = "codeium", priority = 1250, keyword_length = 1, group_index = 1 })
 
         local lspkind = require "lspkind"
         lspkind.symbol_map["Codeium"] = ""
+        vim.api.nvim_set_hl(0, "CmpItemKindCodeium", { fg = "#32d2bf" })
 
         return opts
       end,
@@ -25,10 +26,10 @@ if true then
       opts = function(_, opts)
         local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
 
-        return {
-          config_path = nvim_data_codeium_path .. "\\config.json",
-          bin_path = nvim_data_codeium_path .. "\\bin",
-        }
+        opts.config_path = nvim_data_codeium_path .. "\\config.json"
+        opts.bin_path = nvim_data_codeium_path .. "\\bin"
+
+        return opts
       end,
     },
   }
