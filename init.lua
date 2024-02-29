@@ -59,7 +59,8 @@ return {
         cmd = {
           "clangd.exe",
           -- 主要标志
-          "--compile-commands-dir=build/Debug/.qtc_clangd", -- 配置编译命令文件
+          "--compile-commands-dir=build/Debug/.qtc_clangd", -- qt配置编译命令文件
+          -- "--compile-commands-dir=build/Debug", -- nvim的cmake配置编译命令文件
           -- "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc-*.exe,D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++-*.exe",
 
           -- 功能
@@ -83,6 +84,35 @@ return {
         capabilities = {
           offsetEncoding = { "utf-16" },
         },
+        -- root_dir = require("lspconfig.util").root_pattern(
+        --   ".clangd",
+        --   ".clang-tidy",
+        --   ".clang-format",
+        --   "compile_commands.json",
+        --   "compile_flags.txt",
+        --   "configure.ac",
+        --   ".git",
+        --   "main.cpp",
+        --   "main.c",
+        --   "build"
+        -- ),
+        root_dir = function(fname)
+          return require("lspconfig.util").root_pattern(
+            ".clangd",
+            ".clang-tidy",
+            ".clang-format",
+            "Makefile",
+            "configure.ac",
+            "configure.in",
+            "config.h.in",
+            "meson.build",
+            "meson_options.txt",
+            "build.ninja",
+            "build"
+          )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(
+            fname
+          ) or require("lspconfig.util").find_git_ancestor(fname)
+        end,
       },
       pyright = {
         settings = {

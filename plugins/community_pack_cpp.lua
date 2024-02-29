@@ -48,8 +48,8 @@ return {
   --   -- unix and mac: ~/.cache/cmake_tools_nvim/
   --   -- windows: ~/AppData/cmake_tools_nvim/
   --   opts = {
-  --     cmake_regenerate_on_save = true,
-  --     cmake_build_directory = "build",
+  --     cmake_regenerate_on_save = false,
+  --     cmake_build_directory = "build\\${variant:buildType}",
   --
   --     -- 在vscode中的qt项目，使用cmake默认的构建参数，用来参考，请勿在CMakeLists.txt中尝试配置编译器
   --     -- D:\CodeBin\mingw64\bin\cmake.EXE
@@ -68,5 +68,18 @@ return {
   --       "-DCMAKE_BUILD_TYPE:STRING=Debug",
   --     },
   --   },
+  -- },
+
+  -- {
+  --   "Shatur/neovim-tasks",
+  --   ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  --   dependencies = {
+  --     {
+  --       "jay-babu/mason-nvim-dap.nvim",
+  --       opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
+  --     },
+  --   },
+  --   -- opts = {
+  --   -- },
   -- },
 }

@@ -9,9 +9,9 @@ return {
   enabled = vim.g.neovide == nil,
   event = "VeryLazy",
   opts = {
-    default_delay = 1,
-    extra_keymaps = true, -- Create extra keymaps.
-    extended_keymaps = true, -- Create extended keymaps.
-    scroll_limit = 50,
+    -- default_delay = 1,
+    -- extra_keymaps = false, -- Create extra keymaps.
+    -- extended_keymaps = false, -- Create extended keymaps.
+    -- scroll_limit = 50,
   },
 }

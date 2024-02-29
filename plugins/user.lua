@@ -138,4 +138,36 @@ return {
     "sindrets/winshift.nvim",
     event = "User AstroFile",
   },
+  -- 搜索高亮
+  {
+    "kevinhwang91/nvim-hlslens",
+    opts = {},
+    event = "BufRead",
+    init = function() vim.on_key(nil, vim.api.nvim_get_namespaces()["auto_hlsearch"]) end,
+    config = function()
+      require("hlslens").setup()
+
+      local kopts = { noremap = true, silent = true }
+
+      vim.keymap.set("n", "n", function()
+        if vim.fn.searchcount().total ~= 0 then
+          vim.cmd "execute('normal! ' . v:count1 . 'n')"
+          vim.cmd "lua require('hlslens').start()"
+        end
+      end, kopts)
+      vim.keymap.set("n", "N", function()
+        if vim.fn.searchcount().total ~= 0 then
+          vim.cmd "execute('normal! ' . v:count1 . 'N')"
+          vim.cmd "lua require('hlslens').start()"
+        end
+      end, kopts)
+      -- vim.api.nvim_set_keymap('n', 'N',
+      --     [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+      --     kopts)
+      -- vim.api.nvim_set_keymap('n', '*', [[*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      -- vim.api.nvim_set_keymap('n', '#', [[#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      -- vim.api.nvim_set_keymap('n', 'g*', [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
+      -- vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
+    end,
+  },
 }
