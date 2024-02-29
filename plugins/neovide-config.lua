@@ -16,15 +16,15 @@ else
     print("This is an unsupported operating system.")
 end
 
-vim.g.neovide_no_idle = true
-vim.g.neovide_confirm_quit = true
-vim.g.neovide_fullscreen = false
-vim.g.neovide_remember_window_size = true
--- 没有焦点的时候的刷新率
-vim.g.neovide_refresh_rate_idle = 5
--- 普通刷新率
-vim.g.neovide_refresh_rate = 60
--- 滚动动画的时间
-vim.g.neovide_scroll_animation_length = 0.3
+-- vim.g.neovide_no_idle = true
+-- vim.g.neovide_confirm_quit = true
+-- vim.g.neovide_fullscreen = false
+-- vim.g.neovide_remember_window_size = true
+-- -- 没有焦点的时候的刷新率
+-- vim.g.neovide_refresh_rate_idle = 5
+-- -- 普通刷新率
+-- vim.g.neovide_refresh_rate = 60
+-- -- 滚动动画的时间
+-- vim.g.neovide_scroll_animation_length = 0.3
 
 return {}

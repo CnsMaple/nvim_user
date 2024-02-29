@@ -1,6 +1,9 @@
 -- aeff33f
 
 local utils = require "astronvim.utils"
+local prefix = "<leader>lc"
+local Path = require "plenary.path"
+utils.set_mappings { n = { [prefix] = { desc = "Clangd" } } }
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -17,8 +20,6 @@ return {
   {
     "p00f/clangd_extensions.nvim",
     init = function()
-      local prefix = "<leader>lc"
-      utils.set_mappings { n = { [prefix] = { desc = "Clangd" } } }
       -- load clangd extensions when clangd attaches
       local augroup = vim.api.nvim_create_augroup("clangd_extensions", { clear = true })
       vim.keymap.set("n", "<leader>lcc", "<Cmd>ClangdSwitchSourceHeader<CR>", { desc = "ClangdSwitchSourceHeader" })
@@ -70,16 +71,57 @@ return {
   --   },
   -- },
 
-  -- {
-  --   "Shatur/neovim-tasks",
-  --   ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-  --   dependencies = {
-  --     {
-  --       "jay-babu/mason-nvim-dap.nvim",
-  --       opts = function(_, opts) opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, "codelldb") end,
-  --     },
-  --   },
-  --   -- opts = {
-  --   -- },
-  -- },
+  {
+    "Shatur/neovim-tasks",
+    ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    dependencies = {
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        opts = function(_, opts)
+          opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "codelldb", "cpptools" })
+        end,
+      },
+    },
+    init = function()
+      vim.keymap.set("n", "<leader>lcd", "<Cmd>Task start cmake debug<CR>", { desc = "cpp debug" })
+      vim.keymap.set("n", "<leader>lcr", "<Cmd>Task start cmake run<CR>", { desc = "cpp run" })
+      vim.keymap.set("n", "<leader>lcg", "<Cmd>Task start cmake configure<CR>", { desc = "cpp config" })
+      vim.keymap.set("n", "<leader>lcb", "<Cmd>Task start cmake build<CR>", { desc = "cpp build" })
+      vim.keymap.set("n", "<leader>lct", "<Cmd>Task set_module_param cmake target<CR>", { desc = "cpp set target" })
+    end,
+    -- opts = function(_, opts)
+    --   vim.keymap.set("n", "<leader>lcd", "<Cmd>CMakeDebug<CR>", { desc = "cpp debug" })
+    --   vim.keymap.set("n", "<leader>lcr", "<Cmd>CMakeRun<CR>", { desc = "cpp run" })
+    --   opts.default_params.cmake.args.configure = {
+    --     "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+    --     "-DCMAKE_C_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc.exe",
+    --     "-DCMAKE_CXX_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++.exe",
+    --     "-DCMAKE_BUILD_TYPE:STRING=Debug",
+    --   }
+    --   return opts
+    -- end,
+    opts = {
+      default_params = {
+        cmake = {
+          build_dir = tostring(Path:new("{cwd}", "build", "{build_type}")), -- Build directory. The expressions `{cwd}`, `{os}` and `{build_type}` will be expanded with the corresponding text values. Could be a function that return the path to the build directory.
+          -- dap_name = "codelldb",
+
+          -- qt的标配
+          dap_name = "cppdbg",
+          args = {
+            configure = {
+              "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+              "-DCMAKE_C_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc.exe",
+              "-DCMAKE_CXX_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++.exe",
+              "-DCMAKE_BUILD_TYPE:STRING=Debug",
+              "-G MinGW Makefiles",
+            },
+          },
+        },
+      },
+      save_before_run = false, -- If true, all files will be saved before executing a task.
+      params_file = tostring(Path:new("build", "neovim.json")), -- JSON file to store module and task parameters.
+      dap_open_command = function() end,
+    },
+  },
 }

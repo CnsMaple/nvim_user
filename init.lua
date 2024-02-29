@@ -59,7 +59,7 @@ return {
         cmd = {
           "clangd.exe",
           -- 主要标志
-          "--compile-commands-dir=build/Debug/.qtc_clangd", -- qt配置编译命令文件
+          -- "--compile-commands-dir=build/Debug/.qtc_clangd", -- qt配置编译命令文件
           -- "--compile-commands-dir=build/Debug", -- nvim的cmake配置编译命令文件
           -- "--query-driver=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc-*.exe,D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++-*.exe",
 
