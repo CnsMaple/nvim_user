@@ -3,7 +3,7 @@
 local utils = require "astronvim.utils"
 local prefix = "<leader>lc"
 local Path = require "plenary.path"
-utils.set_mappings { n = { [prefix] = { desc = "Clangd" } } }
+utils.set_mappings { n = { [prefix] = { desc = "cpp" } } }
 return {
   {
     "nvim-treesitter/nvim-treesitter",
@@ -78,7 +78,7 @@ return {
       {
         "jay-babu/mason-nvim-dap.nvim",
         opts = function(_, opts)
-          opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "codelldb", "cpptools" })
+          opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "codelldb", "cppdbg" })
         end,
       },
     },
