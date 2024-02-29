@@ -18,9 +18,9 @@ return {
         NOTE = { icon = " ", color = "hint", alt = { "INFO", "note" } },
         TEST = { icon = "⏲ ", color = "test", alt = { "TESTING", "PASSED", "FAILED", "test" } },
       },
-      highlight = {
-        comments_only = false,
-      },
+      -- highlight = {
+      --   comments_only = false,
+      -- },
     },
     event = "User AstroFile",
   },
