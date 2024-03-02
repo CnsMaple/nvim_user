@@ -123,7 +123,7 @@ return {
             },
           },
           position = "right",
-          size = 25,
+          size = 35,
         },
         {
           elements = {

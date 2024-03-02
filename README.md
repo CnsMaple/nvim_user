@@ -18,7 +18,13 @@ debian:
 
 `sudo apt install python3.11-venv`
 
-然后clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
+开始安装：
+
+`git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/nvim`
+
+`git clone https:://github.com/CnsMaple/nvim_user ~/.config/nvim/lua/user`
+
+clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
 
 如果想要更好的视觉体验可以使用neovide，[neovide](https://neovide.dev/installation.html)建议源码构建出来，这样体验新功能和更少bug。
 
@@ -82,6 +88,13 @@ Host github.com
     Hostname ssh.github.com
     User git
     Port 443
+```
+
+```bash
+echo "Host github.com
+    Hostname ssh.github.com
+    User git
+    Port 443" > ~/.ssh/config
 ```
 
 4. [a Nerd Font](https://www.nerdfonts.com/)
