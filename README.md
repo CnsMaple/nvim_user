@@ -10,6 +10,14 @@ archlinux:
 
 `paru -S neovim cmake nodejs gdb fd unzip zip base-devel deno`
 
+debian:
+
+`sudo apt install cmake nodejs gdb fd-find unzip zip build-essential`
+
+需要变动的包：
+
+`sudo apt install python3.11-venv`
+
 然后clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
 
 如果想要更好的视觉体验可以使用neovide，[neovide](https://neovide.dev/installation.html)建议源码构建出来，这样体验新功能和更少bug。
