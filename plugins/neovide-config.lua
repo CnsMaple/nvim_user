@@ -9,7 +9,7 @@ elseif vim.fn.has("unix") == 1 then
         -- 在macOS上运行的代码
     else
         -- 在Linux上运行的代码
-        vim.o.guifont = "Maple Mono SC NF:h18"
+        vim.o.guifont = "Maple Mono SC NF:h13"
     end
 else
     -- 在其他操作系统上运行的代码

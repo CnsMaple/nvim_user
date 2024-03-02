@@ -24,10 +24,14 @@ if true then
         "hrsh7th/nvim-cmp",
       },
       opts = function(_, opts)
-        local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
+        local Path = require "plenary.path"
+        -- local nvim_data_codeium_path = vim.fn.stdpath "data" .. "\\codeium"
+        local nvim_data_codeium_path = tostring(Path:new(vim.fn.stdpath "data", "codeium"))
 
-        opts.config_path = nvim_data_codeium_path .. "\\config.json"
-        opts.bin_path = nvim_data_codeium_path .. "\\bin"
+        -- opts.config_path = nvim_data_codeium_path .. "\\config.json"
+        opts.config_path = tostring(Path:new(nvim_data_codeium_path, "config.json"))
+        -- opts.bin_path = nvim_data_codeium_path .. "\\bin"
+        opts.bin_path = tostring(Path:new(nvim_data_codeium_path, "bin"))
 
         return opts
       end,

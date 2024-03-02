@@ -111,10 +111,11 @@ return {
           args = {
             configure = {
               "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
-              "-DCMAKE_C_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/gcc.exe",
-              "-DCMAKE_CXX_COMPILER:FILEPATH=D:/CodeBin/Qt/Tools/mingw1120_64/bin/g++.exe",
+              "-DCMAKE_C_COMPILER:FILEPATH=gcc",
+              "-DCMAKE_CXX_COMPILER:FILEPATH=g++",
               "-DCMAKE_BUILD_TYPE:STRING=Debug",
-              "-G MinGW Makefiles",
+              osCho("-G MinGW Makefiles", "", "", ""),
+              "-DCMAKE_MAKE_PROGRAM=make",
             },
           },
         },
