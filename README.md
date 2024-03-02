@@ -4,11 +4,11 @@
 
 Windows：
 
-`scoop install nodejs fd ripgrep sed gcc make fzf gzip deno neovide`
+`scoop install nodejs fd ripgrep sed gcc make fzf gzip deno clangd cmake gdb`
 
 archlinux:
 
-`paru -S npm neovim gcc make`
+`paru -S neovim cmake nodejs gdb fd unzip zip base-devel deno`
 
 然后clone [AstroNvim](https://docs.astronvim.com)到nvim目录下，然后创建user目录，再clone现在这个仓库到user目录下。
 
