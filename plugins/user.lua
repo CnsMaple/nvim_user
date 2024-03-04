@@ -78,7 +78,7 @@ return {
   -- markdown 预览
   {
     "toppair/peek.nvim",
-    enabled = false,
+    enabled = vim.fn.has "win32" == 1,
     build = "deno task --quiet build:fast",
     ft = { "markdown" },
     opts = function(_, opts)
