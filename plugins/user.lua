@@ -171,4 +171,20 @@ return {
       -- vim.api.nvim_set_keymap('n', 'g#', [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
     end,
   },
+  -- 字符匹配 if else
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "andymass/vim-matchup" },
+    init = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup", fullwidth = 1, highlight = "Normal", syntax_hl = 1 }
+    end,
+    opts = { matchup = { enable = true } },
+  },
+  {
+    "j-hui/fidget.nvim",
+    event = "LspAttach",
+    opts = {
+      -- options
+    },
+  },
 }

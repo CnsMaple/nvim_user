@@ -1,5 +1,3 @@
--- e7b94c5
-
 local utils = require "astronvim.utils"
 return {
   {

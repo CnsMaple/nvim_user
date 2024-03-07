@@ -97,6 +97,8 @@ local function my_on_attach(bufnr)
     api.tree.toggle_help()
     vim.cmd "resize 30"
   end, opts "Help")
+
+  vim.keymap.set("n", "f", function() require("flash").jump() end, opts "flash")
 end
 
 return {

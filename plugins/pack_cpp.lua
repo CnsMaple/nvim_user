@@ -1,15 +1,17 @@
--- aeff33f
-
 local utils = require "astronvim.utils"
 local prefix = "<leader>lc"
 local Path = require "plenary.path"
 utils.set_mappings { n = { [prefix] = { desc = "cpp" } } }
+local fileType = {
+  "cpp",
+  "c" --[[ , "objc", "cuda", "proto" ]],
+}
 return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, { "cpp", "c", "objc", "cuda", "proto" })
+        opts.ensure_installed = utils.list_insert_unique(opts.ensure_installed, fileType)
       end
     end,
   },
@@ -37,7 +39,7 @@ return {
   },
   -- {
   --   "Civitasv/cmake-tools.nvim",
-  --   ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+  --   ft = fileType,
   --   dependencies = {
   --     {
   --       "jay-babu/mason-nvim-dap.nvim",
@@ -73,7 +75,7 @@ return {
 
   {
     "Shatur/neovim-tasks",
-    ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
+    ft = fileType,
     dependencies = {
       {
         "jay-babu/mason-nvim-dap.nvim",
@@ -83,11 +85,35 @@ return {
       },
     },
     init = function()
-      vim.keymap.set("n", "<leader>lcd", "<Cmd>Task start cmake debug<CR>", { desc = "cpp debug" })
-      vim.keymap.set("n", "<leader>lcr", "<Cmd>Task start cmake run<CR>", { desc = "cpp run" })
-      vim.keymap.set("n", "<leader>lcg", "<Cmd>Task start cmake configure<CR>", { desc = "cpp config" })
-      vim.keymap.set("n", "<leader>lcb", "<Cmd>Task start cmake build<CR>", { desc = "cpp build" })
-      vim.keymap.set("n", "<leader>lct", "<Cmd>Task set_module_param cmake target<CR>", { desc = "cpp set target" })
+      -- vim.keymap.set("n", "<leader>lcd", "<Cmd>Task start cmake debug<CR>", { desc = "cpp debug" })
+      vim.keymap.set("n", "<leader>lcd", function()
+        require("dapui").close()
+        vim.cmd "Task start cmake debug"
+      end, { desc = "cpp debug" })
+
+      -- vim.keymap.set("n", "<leader>lcr", "<Cmd>Task start cmake run<CR>", { desc = "cpp run" })
+      vim.keymap.set("n", "<leader>lcr", function()
+        require("dapui").close()
+        vim.cmd "Task start cmake run"
+      end, { desc = "cpp run" })
+
+      -- vim.keymap.set("n", "<leader>lcg", "<Cmd>Task start cmake configure<CR>", { desc = "cpp config" })
+      vim.keymap.set("n", "<leader>lcg", function()
+        require("dapui").close()
+        vim.cmd "Task start cmake configure"
+      end, { desc = "cpp config" })
+
+      -- vim.keymap.set("n", "<leader>lcb", "<Cmd>Task start cmake build<CR>", { desc = "cpp build" })
+      vim.keymap.set("n", "<leader>lcb", function()
+        require("dapui").close()
+        vim.cmd "Task start cmake build"
+      end, { desc = "cpp build" })
+
+      -- vim.keymap.set("n", "<leader>lct", "<Cmd>Task set_module_param cmake target<CR>", { desc = "cpp set target" })
+      vim.keymap.set("n", "<leader>lct", function()
+        require("dapui").close()
+        vim.cmd "Task set_module_param cmake target"
+      end, { desc = "cpp set target" })
     end,
     -- opts = function(_, opts)
     --   vim.keymap.set("n", "<leader>lcd", "<Cmd>CMakeDebug<CR>", { desc = "cpp debug" })
@@ -114,7 +140,7 @@ return {
               "-DCMAKE_C_COMPILER:FILEPATH=gcc",
               "-DCMAKE_CXX_COMPILER:FILEPATH=g++",
               "-DCMAKE_BUILD_TYPE:STRING=Debug",
-              osCho("-G MinGW Makefiles", "", "", ""),
+              OsCho("-G MinGW Makefiles", "", "", ""),
               "-DCMAKE_MAKE_PROGRAM=make",
             },
           },
@@ -123,6 +149,7 @@ return {
       save_before_run = false, -- If true, all files will be saved before executing a task.
       params_file = tostring(Path:new("build", "neovim.json")), -- JSON file to store module and task parameters.
       dap_open_command = function() end,
+      -- dap_open_command = function() return require("dap").repl.open() end,
     },
   },
 }

@@ -1,4 +1,4 @@
-function osCho(win, mac, linux, default)
+function OsCho(win, mac, linux, default)
   if vim.fn.has "win32" == 1 then
     -- 在Windows上运行的代码
     return win
@@ -16,6 +16,17 @@ function osCho(win, mac, linux, default)
     print "[osCho]This is an unsupported operating system."
     return default
   end
+end
+
+if vim.fn.has "win32" == 1 then
+  -- 设置powsershell为默认终端
+  -- https://stackoverflow.com/questions/36108950/setting-up-powershell-as-vims-shell-command-does-not-seem-to-be-passed-correct
+  vim.cmd [[
+            set shell=pwsh
+            set shellcmdflag=-command
+            set shellquote=\"
+            set shellxquote=
+            ]]
 end
 
 return {
@@ -77,7 +88,7 @@ return {
     config = {
       clangd = {
         cmd = {
-          osCho("clangd.exe", "clangd", "clangd", "clangd"),
+          OsCho("clangd.exe", "clangd", "clangd", "clangd"),
           -- 主要标志
           -- "--compile-commands-dir=build/Debug/.qtc_clangd", -- qt配置编译命令文件
           -- "--compile-commands-dir=build/Debug", -- nvim的cmake配置编译命令文件
@@ -212,6 +223,7 @@ return {
         "dap-repl",
         "dap-console",
         "dap-watches",
+        "DressingInput",
       },
       callback = function(event)
         vim.bo[event.buf].buflisted = false

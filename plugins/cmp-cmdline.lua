@@ -1,4 +1,3 @@
--- 979a830
 
 return {
   "hrsh7th/cmp-cmdline",

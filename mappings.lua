@@ -40,7 +40,6 @@ return {
     ["jj"] = { "<cmd>nohl<cr><esc>", desc = "exit insert mode" },
   },
   t = {
-    -- setting a mapping to false will disable it
-    -- ["<esc>"] = false,
+    ["jj"] = { "<c-\\><c-n>", desc = "exit insert mode" },
   },
 }
